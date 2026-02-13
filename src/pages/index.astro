@@ -2,62 +2,86 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const stats = [
+  { value: '8+', label: 'лет в маркетинге' },
   { value: '50+', label: 'проектов' },
-  { value: '3 года', label: 'в AI-маркетинге' },
-  { value: '×4', label: 'рост конверсий' },
+  { value: 'AI', label: 'каждый день' },
+];
+
+const services = [
+  {
+    num: '01',
+    title: 'AI-маркетинг для экспертов',
+    desc: 'Персональная стратегия внедрения AI в ваш маркетинг. Для коучей, экспертов и личных брендов, которые хотят работать системно.',
+    href: '/consultation/',
+  },
+  {
+    num: '02',
+    title: 'Контент-система «Метод 25/8»',
+    desc: 'Как создавать контент на 10+ каналов без команды. AI берёт рутину, вы фокусируетесь на экспертизе.',
+    href: '/blog/',
+  },
+  {
+    num: '03',
+    title: 'SINTEZ Agency',
+    desc: 'Маркетинговое агентство полного цикла. Стратегия, контент, AI-решения для роста бизнеса.',
+    href: 'https://sintez.agency',
+    external: true,
+  },
+  {
+    num: '04',
+    title: 'Блог и исследования',
+    desc: 'Делюсь находками на стыке AI, маркетинга и стратегии. Кейсы, эксперименты, инструменты.',
+    href: '/blog/',
+  },
 ];
 ---
 
 <BaseLayout title="Валерия Ом — AI-маркетинг для экспертов">
   <main class="flex-1">
 
-    <!-- Hero -->
+    <!-- ==================== HERO ==================== -->
     <section class="relative overflow-hidden">
-      <!-- Decorative glow -->
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[var(--accent)] opacity-[0.03] blur-[120px] pointer-events-none"></div>
 
       <div class="max-w-6xl mx-auto px-5 pt-20 pb-24 md:pt-32 md:pb-32">
-        <!-- Tagline -->
-        <div class="flex items-center gap-3 mb-8">
-          <span class="block w-8 h-px bg-[var(--accent)]"></span>
-          <span class="text-xs font-body font-medium uppercase tracking-[0.2em] text-[var(--accent)]">
-            Стратегия &middot; AI &middot; Личный бренд
+        <!-- Badge -->
+        <div class="fade-in mb-8">
+          <span class="inline-block font-mono text-xs text-[var(--accent)] border border-[var(--accent)] rounded-[20px] px-4 py-1">
+            AI-маркетинг &times; стратегия &times; автоматизация
           </span>
         </div>
 
         <!-- Heading -->
-        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] max-w-4xl">
-          Превращаю экспертность<br />
-          в <span class="text-[var(--accent)] italic">сильный бренд</span><br />
-          с помощью AI
+        <h1 class="fade-in font-display leading-[1.1] max-w-4xl">
+          <span class="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl">Валерия Ом</span>
+          <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[var(--accent)] mt-2">AI-маркетинг для экспертов</span>
         </h1>
 
         <!-- Subtitle -->
-        <p class="mt-6 md:mt-8 text-base md:text-lg font-body text-[var(--text)] opacity-60 max-w-xl leading-relaxed">
-          Помогаю экспертам, консультантам и предпринимателям выстраивать маркетинг,
-          который работает на них — через стратегию, контент и искусственный интеллект.
+        <p class="fade-in mt-6 md:mt-8 text-base md:text-lg font-body text-[var(--text)] opacity-60 max-w-2xl leading-relaxed">
+          Помогаю экспертам и бизнесу выстраивать маркетинг на стыке AI и стратегии.
+          Системный подход, проверенный на себе. Не рассказываю как &laquo;можно было бы&raquo;&nbsp;&mdash;
+          показываю что уже работает.
         </p>
 
         <!-- CTA -->
-        <div class="mt-8 md:mt-10 flex flex-wrap items-center gap-4">
+        <div class="fade-in mt-8 md:mt-10 flex flex-wrap items-center gap-4">
           <a
-            href="https://t.me/valery_om"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/consultation/"
             class="inline-flex items-center px-6 py-3 text-sm font-body font-medium rounded-[6px] bg-[var(--accent)] text-[#1A2E1A] hover:bg-[var(--accent-light)] transition-colors duration-300"
           >
-            Записаться на консультацию
+            Записаться на консультацию&ensp;&rarr;
           </a>
           <a
-            href="/cases/"
-            class="inline-flex items-center px-6 py-3 text-sm font-body font-medium rounded-[6px] border border-[var(--border)] text-[var(--text)] opacity-70 hover:opacity-100 hover:border-[var(--accent)] transition-all duration-300"
+            href="/blog/"
+            class="inline-flex items-center px-6 py-3 text-sm font-body font-medium rounded-[6px] border border-[var(--accent)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[#1A2E1A] transition-all duration-300"
           >
-            Смотреть кейсы
+            Читать блог
           </a>
         </div>
 
         <!-- Stats -->
-        <div class="mt-16 md:mt-20 flex flex-wrap gap-10 md:gap-16">
+        <div class="fade-in mt-16 md:mt-20 flex flex-wrap gap-10 md:gap-16">
           {stats.map((s) => (
             <div>
               <span class="block font-display text-3xl md:text-4xl text-[var(--accent)]">
@@ -71,11 +95,154 @@ const stats = [
         </div>
       </div>
 
-      <!-- Bottom decorative line -->
       <div class="max-w-6xl mx-auto px-5">
         <div class="h-px bg-gradient-to-r from-[var(--accent)] via-[var(--border)] to-transparent opacity-40"></div>
       </div>
     </section>
 
+    <!-- ==================== SERVICES ==================== -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="fade-in font-display text-3xl md:text-4xl lg:text-5xl mb-12 md:mb-16">
+          Чем я занимаюсь
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {services.map((card) => (
+            <a
+              href={card.href}
+              target={card.external ? '_blank' : undefined}
+              rel={card.external ? 'noopener noreferrer' : undefined}
+              class="fade-in group relative block bg-[var(--surface)] border border-[var(--border)] rounded-xl p-6 md:p-8 overflow-hidden transition-all duration-300 hover:border-[var(--accent)] hover:shadow-[0_0_30px_rgba(200,164,78,0.06)]"
+            >
+              <!-- Number -->
+              <span class="absolute top-4 right-6 font-display text-[4rem] leading-none text-[var(--text)] opacity-[0.06] select-none pointer-events-none">
+                {card.num}
+              </span>
+
+              <h3 class="font-display text-xl md:text-2xl mb-3 relative z-10">
+                {card.title}
+              </h3>
+              <p class="font-body text-sm md:text-base text-[var(--text)] opacity-60 leading-relaxed relative z-10 max-w-md">
+                {card.desc}
+              </p>
+
+              <!-- Arrow -->
+              <span class="inline-block mt-5 text-[var(--accent)] text-lg opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+                &rarr;
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="max-w-6xl mx-auto px-5">
+          <div class="h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent opacity-40 mb-20 md:mb-28"></div>
+        </div>
+
+        <h2 class="fade-in font-display text-3xl md:text-4xl lg:text-5xl mb-12 md:mb-16">
+          Обо мне
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
+          <!-- Text column -->
+          <div class="md:col-span-3 space-y-5">
+            <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-70 leading-relaxed">
+              Я&nbsp;&mdash; маркетолог с&nbsp;8+ годами опыта и&nbsp;соучредитель SINTEZ&nbsp;Agency.
+              С&nbsp;2023 года плотно работаю с&nbsp;AI: строю системы, тестирую инструменты,
+              внедряю автоматизацию. Почти три года ежедневной практики.
+            </p>
+            <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-70 leading-relaxed">
+              Моя философия: AI усиливает систему, человек создаёт смысл.
+              Не&nbsp;верю в&nbsp;замену экспертизы на роботов. Верю в&nbsp;умное усиление&nbsp;&mdash;
+              AI берёт рутину, вы фокусируетесь на стратегии и&nbsp;уникальности.
+            </p>
+            <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-70 leading-relaxed">
+              Работала с&nbsp;50+ проектами от локального бизнеса до международных брендов.
+              Запустила мультиплатформенную систему контента, которая работает
+              на&nbsp;10+ каналах без команды.
+            </p>
+          </div>
+
+          <!-- Stats column -->
+          <div class="md:col-span-2 flex flex-row md:flex-col flex-wrap gap-8 md:gap-10 md:pl-8 md:border-l md:border-[var(--border)]">
+            {stats.map((s) => (
+              <div class="fade-in">
+                <span class="block font-display text-4xl md:text-5xl text-[var(--accent)]">
+                  {s.value}
+                </span>
+                <span class="block mt-1 text-sm font-body text-[var(--text)] opacity-40">
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FINAL CTA ==================== -->
+    <section class="relative py-20 md:py-28">
+      <div class="absolute inset-0 bg-[var(--surface)] pointer-events-none"></div>
+
+      <div class="relative max-w-6xl mx-auto px-5 text-center">
+        <h2 class="fade-in font-display text-3xl md:text-4xl lg:text-5xl mb-5">
+          Готовы выстроить систему?
+        </h2>
+        <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-60 max-w-xl mx-auto leading-relaxed mb-8 md:mb-10">
+          Получите персональную стратегию внедрения AI в&nbsp;ваш маркетинг&nbsp;&mdash;
+          конкретный план, который можно запускать с&nbsp;завтрашнего дня.
+        </p>
+        <div class="fade-in">
+          <a
+            href="/consultation/"
+            class="inline-flex items-center px-8 py-4 text-base font-body font-medium rounded-[6px] bg-[var(--accent)] text-[#1A2E1A] hover:bg-[var(--accent-light)] transition-colors duration-300"
+          >
+            Записаться на консультацию&ensp;&rarr;
+          </a>
+          <p class="mt-4 text-xs font-body text-[var(--text)] opacity-40">
+            60 минут &middot; онлайн &middot; 10,000 &#8381;
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 </BaseLayout>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initFadeIn() {
+    const els = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    els.forEach((el) => observer.observe(el));
+  }
+
+  initFadeIn();
+  document.addEventListener('astro:after-swap', initFadeIn);
+</script>
