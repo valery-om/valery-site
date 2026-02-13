@@ -1,0 +1,146 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const links = [
+  { label: 'Блог', href: '/blog/' },
+  { label: 'Кейсы', href: '/cases/' },
+  { label: 'Консультация', href: '/consultation/' },
+];
+---
+
+<nav
+  id="main-nav"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="font-display text-xl text-[var(--accent)] hover:text-[var(--accent-light)] transition-colors duration-300">
+      Валерия Ом
+    </a>
+
+    <!-- Desktop menu -->
+    <ul class="hidden md:flex items-center gap-8">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-sm font-body text-[var(--text)] opacity-70 hover:opacity-100 hover:text-[var(--accent)] transition-all duration-300"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Right side -->
+    <div class="flex items-center gap-3">
+      <ThemeToggle />
+
+      <a
+        href="https://t.me/valery_om"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden md:inline-flex items-center px-4 py-2 text-sm font-body font-medium rounded-[6px] bg-[var(--accent)] text-[#1A2E1A] hover:bg-[var(--accent-light)] transition-colors duration-300"
+      >
+        Записаться
+      </a>
+
+      <!-- Burger -->
+      <button
+        id="burger-btn"
+        class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-[5px] cursor-pointer"
+        aria-label="Открыть меню"
+      >
+        <span class="burger-line w-5 h-[2px] bg-[var(--text)] transition-all duration-300 origin-center"></span>
+        <span class="burger-line w-5 h-[2px] bg-[var(--text)] transition-all duration-300 origin-center"></span>
+        <span class="burger-line w-5 h-[2px] bg-[var(--text)] transition-all duration-300 origin-center"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 top-16 bg-[var(--bg)] translate-x-full transition-transform duration-300 ease-in-out z-40"
+  >
+    <ul class="flex flex-col items-center gap-6 pt-12">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-lg font-body text-[var(--text)] hover:text-[var(--accent)] transition-colors duration-300"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li class="pt-4">
+        <a
+          href="https://t.me/valery_om"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-6 py-3 text-base font-body font-medium rounded-[6px] bg-[var(--accent)] text-[#1A2E1A] hover:bg-[var(--accent-light)] transition-colors duration-300"
+        >
+          Записаться
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Spacer so content doesn't hide behind fixed nav -->
+<div class="h-16"></div>
+
+<script>
+  function initNav() {
+    const nav = document.getElementById('main-nav');
+    const burger = document.getElementById('burger-btn');
+    const menu = document.getElementById('mobile-menu');
+    const lines = burger.querySelectorAll('.burger-line');
+    let open = false;
+
+    function toggleMenu() {
+      open = !open;
+      if (open) {
+        menu.classList.remove('translate-x-full');
+        menu.classList.add('translate-x-0');
+        lines[0].style.transform = 'rotate(45deg) translate(2.5px, 2.5px)';
+        lines[1].style.opacity = '0';
+        lines[2].style.transform = 'rotate(-45deg) translate(2.5px, -2.5px)';
+      } else {
+        menu.classList.add('translate-x-full');
+        menu.classList.remove('translate-x-0');
+        lines[0].style.transform = '';
+        lines[1].style.opacity = '1';
+        lines[2].style.transform = '';
+      }
+    }
+
+    burger.addEventListener('click', toggleMenu);
+
+    // Close on link click
+    menu.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        if (open) toggleMenu();
+      });
+    });
+
+    // Backdrop blur on scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        nav.style.backdropFilter = 'blur(12px)';
+        nav.style.webkitBackdropFilter = 'blur(12px)';
+        nav.style.backgroundColor = 'var(--surface)';
+        nav.style.borderBottom = '1px solid var(--border)';
+      } else {
+        nav.style.backdropFilter = '';
+        nav.style.webkitBackdropFilter = '';
+        nav.style.backgroundColor = '';
+        nav.style.borderBottom = '';
+      }
+    });
+  }
+
+  initNav();
+  document.addEventListener('astro:after-swap', initNav);
+</script>

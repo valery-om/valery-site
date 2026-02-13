@@ -1,9 +1,81 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const stats = [
+  { value: '50+', label: 'проектов' },
+  { value: '3 года', label: 'в AI-маркетинге' },
+  { value: '×4', label: 'рост конверсий' },
+];
 ---
 
-<BaseLayout title="Валерия Ом">
-  <main class="min-h-screen flex items-center justify-center">
-    <h1 class="font-display text-5xl md:text-7xl text-accent">Валерия Ом</h1>
+<BaseLayout title="Валерия Ом — AI-маркетинг для экспертов">
+  <main class="flex-1">
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <!-- Decorative glow -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[var(--accent)] opacity-[0.03] blur-[120px] pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-5 pt-20 pb-24 md:pt-32 md:pb-32">
+        <!-- Tagline -->
+        <div class="flex items-center gap-3 mb-8">
+          <span class="block w-8 h-px bg-[var(--accent)]"></span>
+          <span class="text-xs font-body font-medium uppercase tracking-[0.2em] text-[var(--accent)]">
+            Стратегия &middot; AI &middot; Личный бренд
+          </span>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] max-w-4xl">
+          Превращаю экспертность<br />
+          в <span class="text-[var(--accent)] italic">сильный бренд</span><br />
+          с помощью AI
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="mt-6 md:mt-8 text-base md:text-lg font-body text-[var(--text)] opacity-60 max-w-xl leading-relaxed">
+          Помогаю экспертам, консультантам и предпринимателям выстраивать маркетинг,
+          который работает на них — через стратегию, контент и искусственный интеллект.
+        </p>
+
+        <!-- CTA -->
+        <div class="mt-8 md:mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href="https://t.me/valery_om"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-3 text-sm font-body font-medium rounded-[6px] bg-[var(--accent)] text-[#1A2E1A] hover:bg-[var(--accent-light)] transition-colors duration-300"
+          >
+            Записаться на консультацию
+          </a>
+          <a
+            href="/cases/"
+            class="inline-flex items-center px-6 py-3 text-sm font-body font-medium rounded-[6px] border border-[var(--border)] text-[var(--text)] opacity-70 hover:opacity-100 hover:border-[var(--accent)] transition-all duration-300"
+          >
+            Смотреть кейсы
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-16 md:mt-20 flex flex-wrap gap-10 md:gap-16">
+          {stats.map((s) => (
+            <div>
+              <span class="block font-display text-3xl md:text-4xl text-[var(--accent)]">
+                {s.value}
+              </span>
+              <span class="block mt-1 text-xs font-body uppercase tracking-wider text-[var(--text)] opacity-40">
+                {s.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Bottom decorative line -->
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="h-px bg-gradient-to-r from-[var(--accent)] via-[var(--border)] to-transparent opacity-40"></div>
+      </div>
+    </section>
+
   </main>
 </BaseLayout>
