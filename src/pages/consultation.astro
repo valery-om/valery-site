@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const examples = [
+  'Есть инстаграм на 3000 подписчиков, но клиентов оттуда нет',
+  'Хочу поднять чек, но не понимаю как обосновать',
+  'Пробовала ChatGPT — получилась ерунда',
+  'Хочу запустить курс, но нет аудитории',
+  'Не понимаю нужен ли мне сайт и что туда писать',
+  'Трачу на контент 10 часов в неделю, результат — ноль',
+];
+
+const faq = [
+  {
+    q: 'Сколько стоит и как записаться?',
+    a: 'Стоимость $100. Оплата в любой удобной валюте (рубли, доллары, тенге) любым удобным способом. Для записи напишите в Telegram.',
+  },
+  {
+    q: 'У меня специфическая ниша, подойдёт?',
+    a: 'Напишите мне в Telegram, обсудим и поймём нужна ли вам консультация и смогу ли я вам помочь.',
+  },
+  {
+    q: 'Мне нужен только инстаграм, зачем мне экосистема?',
+    a: 'Для диверсификации рисков. Площадка может заблокировать вас или сменить политику показов. Экосистема из нескольких каналов защищает от потери аудитории.',
+  },
+  {
+    q: 'Я пробовала ChatGPT, ерунда получилась. AI вообще работает?',
+    a: 'Безусловно. ChatGPT далеко не единственный инструмент, и даже с ним, изменив подход, можно сильно улучшить результат. На консультации даю основы промтинга, чтобы взаимодействие с AI было продуктивным. После консультации отправляю набор промтов для работы.',
+  },
+  {
+    q: 'Через сколько будут результаты?',
+    a: 'Через 3-5 месяцев плотной работы над контентом и цифровой экосистемой можно получить первые значимые результаты. Я бы ориентировалась на горизонт от полугода. Важно понимать что это игра вдолгую.',
+  },
+  {
+    q: 'А вы потом будете вести мой проект?',
+    a: 'Мы можем рассмотреть варианты сотрудничества с моим агентством SINTEZ, как на ведение, так и на разовые услуги.',
+  },
+];
+---
+
+<BaseLayout title="Консультация — Валерия Ом" description="60 минут · $100 · онлайн">
+  <main class="flex-1 relative">
+
+    <div class="grain"></div>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="relative overflow-hidden">
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(ellipse at center, var(--accent) 0%, transparent 70%); opacity: 0.05;"></div>
+
+      <div class="max-w-[1100px] mx-auto px-6 pt-20 pb-24 md:pt-32 md:pb-32">
+        <h1 class="fade-in font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08]">
+          Консультация
+        </h1>
+
+        <p class="fade-in font-body text-lg md:text-xl text-[var(--text)] opacity-40 mt-3 md:mt-4">
+          60 минут &middot; $100 &middot; онлайн
+        </p>
+
+        <p class="fade-in mt-6 md:mt-8 text-base md:text-lg font-body text-[var(--text)] opacity-50 max-w-[900px] leading-relaxed">
+          Я смотрю на продвижение целиком. Какие точки касания у вас есть, каких не хватает, где вас может найти ваша аудитория. Вместе выстраиваем цифровую экосистему вокруг вашей экспертизы.
+        </p>
+
+        <div class="fade-in mt-8 md:mt-10">
+          <a
+            href="https://t.me/valery_om"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-3 text-sm font-body font-medium rounded-[6px] bg-[var(--accent)] text-[#1A2E1A] hover:bg-[var(--accent-light)] transition-colors duration-300"
+          >
+            Записаться&ensp;&rarr;
+          </a>
+          <p class="mt-4 text-xs font-body text-[var(--text)] opacity-30">
+            $100 &middot; онлайн &middot; 60 минут
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== ЧТО ПРОИСХОДИТ ==================== -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-[1100px] mx-auto px-6">
+        <h2 class="fade-in font-display text-3xl md:text-4xl lg:text-5xl mb-12 md:mb-16">
+          Что происходит на консультации
+        </h2>
+
+        <div class="max-w-[900px] space-y-5">
+          <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-60 leading-relaxed">
+            Начинаем с того, что у вас уже есть. Где вы присутствуете в интернете, что из этого работает. Я задаю вопросы, иногда неудобные.
+          </p>
+          <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-60 leading-relaxed">
+            Дальше собираем стратегию под вас: какие каналы, какой контент, сколько времени на это реально нужно. Если у вас 3-4 часа в неделю, работаем с этим.
+          </p>
+          <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-60 leading-relaxed">
+            Если в вашем случае имеет смысл подключить AI-инструменты, подбираем конкретные под ваши задачи. Какой инструмент, для чего, как настроить. После консультации отправляю набор промтов для работы.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== ЧТО ПОЛУЧАЕТЕ ==================== -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-[1100px] mx-auto px-6">
+        <h2 class="fade-in font-display text-3xl md:text-4xl lg:text-5xl mb-12 md:mb-16">
+          Что вы получаете после
+        </h2>
+
+        <div class="max-w-[900px]">
+          <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-60 leading-relaxed">
+            Персональную страницу на сайте: запись созвона с таймкодами, конспект, глоссарий терминов если нужен, рекомендации под ваш запрос. Заходите когда нужно, всё на месте.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== ПРИМЕР ==================== -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-[1100px] mx-auto px-6">
+        <h2 class="fade-in font-display text-3xl md:text-4xl lg:text-5xl mb-12 md:mb-16">
+          Как это выглядит на практике
+        </h2>
+
+        <div class="fade-in max-w-[900px] bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6 md:p-8">
+          <span class="block font-mono text-[12px] text-[var(--accent)] mb-4">пример консультации</span>
+          <div class="space-y-4">
+            <p class="font-body text-base md:text-lg text-[var(--text)] opacity-60 leading-relaxed">
+              Нутрициолог из Москвы. Инстаграм на 3000 подписчиков, клиенты по сарафану, чек 3000 рублей. Хочет расти, но времени 3-4 часа в неделю.
+            </p>
+            <p class="font-body text-base md:text-lg text-[var(--text)] opacity-60 leading-relaxed">
+              За 60 минут: определили 4 точки касания (инста + тикток + ВК + сайт), подобрали способ делать контент из голосовых через AI, составили тактику повышения чека, обсудили запуск групповой программы. Плюс план на первый месяц.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== С ЧЕМ ПРИХОДЯТ ==================== -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-[1100px] mx-auto px-6">
+        <h2 class="fade-in font-display text-3xl md:text-4xl lg:text-5xl mb-12 md:mb-16">
+          С чем приходят
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          {examples.map((text) => (
+            <div class="fade-in bg-[var(--surface)] border border-[var(--border)] rounded-xl p-5 md:p-6 transition-all duration-300 hover:border-[var(--accent)] hover:shadow-[0_0_30px_rgba(200,164,78,0.08)]">
+              <p class="font-body text-sm md:text-base text-[var(--text)] opacity-60 leading-relaxed">
+                {text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== ДЛЯ КОГО ==================== -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-[1100px] mx-auto px-6">
+        <h2 class="fade-in font-display text-3xl md:text-4xl lg:text-5xl mb-12 md:mb-16">
+          Для кого
+        </h2>
+
+        <div class="max-w-[900px] space-y-5">
+          <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-60 leading-relaxed">
+            Для экспертов, консультантов, бизнесов. Для тех, кто хочет разобраться в своей ситуации и готов думать и действовать.
+          </p>
+          <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-60 leading-relaxed">
+            Я работаю с теми, кто понимает что одного созвона мало. Консультация даёт план. Реализация остаётся за вами.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-[1100px] mx-auto px-6">
+        <h2 class="fade-in font-display text-3xl md:text-4xl lg:text-5xl mb-12 md:mb-16">
+          Частые вопросы
+        </h2>
+
+        <div class="max-w-[900px]">
+          {faq.map((item) => (
+            <details class="fade-in faq-item group">
+              <summary class="flex items-center justify-between cursor-pointer py-5 font-body font-bold text-base md:text-lg text-[var(--text)] select-none">
+                <span>{item.q}</span>
+                <span class="faq-icon ml-4 shrink-0 w-5 h-5 flex items-center justify-center text-[var(--accent)] opacity-50 group-open:opacity-100 transition-transform duration-300 group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <div class="pb-5">
+                <p class="font-body text-sm md:text-base text-[var(--text)] opacity-50 leading-relaxed">
+                  {item.a}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ФИНАЛЬНЫЙ CTA ==================== -->
+    <section class="relative py-20 md:py-28 overflow-hidden">
+      <div class="absolute inset-0 bg-[var(--surface)] pointer-events-none"></div>
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(ellipse at center, var(--accent) 0%, transparent 70%); opacity: 0.04;"></div>
+
+      <div class="relative max-w-[1100px] mx-auto px-6 text-center">
+        <h2 class="fade-in font-display text-3xl md:text-4xl lg:text-5xl mb-5">
+          Записаться
+        </h2>
+        <p class="fade-in font-body text-base md:text-lg text-[var(--text)] opacity-50 max-w-lg mx-auto leading-relaxed mb-8 md:mb-10">
+          Напишите в Telegram, обсудим вашу ситуацию и договоримся о времени.
+        </p>
+        <div class="fade-in">
+          <a
+            href="https://t.me/valery_om"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-8 py-4 text-base font-body font-medium rounded-[6px] bg-[var(--accent)] text-[#1A2E1A] hover:bg-[var(--accent-light)] transition-colors duration-300"
+          >
+            Написать в Telegram&ensp;&rarr;
+          </a>
+          <p class="mt-4 text-xs font-body text-[var(--text)] opacity-30">
+            $100 &middot; онлайн &middot; 60 минут
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<style>
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  .section-divider {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-divider::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.1;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--accent);
+    border-bottom-color: rgba(200, 164, 78, 0.1);
+  }
+  .faq-item summary {
+    list-style: none;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initFadeIn() {
+    const els = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    els.forEach((el) => observer.observe(el));
+  }
+
+  initFadeIn();
+  document.addEventListener('astro:after-swap', initFadeIn);
+</script>
