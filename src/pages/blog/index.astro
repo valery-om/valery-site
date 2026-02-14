@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(date) {
+  return date.toLocaleDateString('ru-RU', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<BaseLayout title="Блог — Валерия Ом" description="Заметки, эксперименты, разборы инструментов.">
+  <main class="flex-1 relative">
+
+    <div class="grain"></div>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="relative overflow-hidden">
+      <div class="max-w-[1100px] mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-24">
+        <h1 class="fade-in font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08]">
+          Блог
+        </h1>
+        <p class="fade-in font-body text-lg md:text-xl text-[var(--text)] opacity-40 mt-3 md:mt-4">
+          Заметки, эксперименты, разборы инструментов
+        </p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== ПОСТЫ ==================== -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-[1100px] mx-auto px-6">
+        {posts.length === 0 ? (
+          <p class="fade-in font-body text-base text-[var(--text)] opacity-40">
+            Пока ничего нет. Скоро будет.
+          </p>
+        ) : (
+          <div class="space-y-6">
+            {posts.map((post) => (
+              <a
+                href={`/blog/${post.id}/`}
+                class="fade-in group block bg-[var(--surface)] border border-[var(--border)] rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-[var(--accent)] hover:shadow-[0_0_30px_rgba(200,164,78,0.08)]"
+              >
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 md:gap-8 mb-3">
+                  <h2 class="font-display text-xl md:text-2xl group-hover:text-[var(--accent)] transition-colors duration-300">
+                    {post.data.title}
+                  </h2>
+                  <time class="shrink-0 font-body text-xs text-[var(--text)] opacity-30 md:mt-2">
+                    {formatDate(post.data.date)}
+                  </time>
+                </div>
+
+                <p class="font-body text-sm md:text-base text-[var(--text)] opacity-45 leading-relaxed mb-4">
+                  {post.data.description}
+                </p>
+
+                {post.data.tags.length > 0 && (
+                  <div class="flex flex-wrap gap-2">
+                    {post.data.tags.map((tag) => (
+                      <span class="inline-block font-mono text-[11px] text-[var(--accent)] border border-[var(--accent)] opacity-50 rounded-[20px] px-3 py-0.5">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<style>
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  .section-divider {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-divider::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.1;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initFadeIn() {
+    const els = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    els.forEach((el) => observer.observe(el));
+  }
+
+  initFadeIn();
+  document.addEventListener('astro:after-swap', initFadeIn);
+</script>
